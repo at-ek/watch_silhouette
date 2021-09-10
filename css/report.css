@@ -1,0 +1,177 @@
+@charset "UTF-8";
+.report {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #252525;
+  width: 280px;
+  height: 120px;
+  margin: 0 auto;
+  padding: 16px 8px;
+  border: 3px solid #757575;
+}
+
+.report .layout-box {
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 2px solid #555555;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.report .layout-box h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 24px;
+  position: relative;
+}
+
+.report .layout-box h5::before {
+  content: "";
+  background-color: #555555;
+  width: 8px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: -16px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.report .layout-box .report-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.report .layout-box .report-icon img {
+  width: 100%;
+  display: block;
+}
+
+.text-wrap {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: relative;
+}
+
+.text-wrap .report-text {
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: 24px;
+  color: #202020;
+  background-color: #f5f5f5;
+  border: 2px solid #555555;
+  text-indent: 1em;
+  opacity: 0;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.text-wrap::after {
+  content: "";
+  width: 100%;
+  height: 8px;
+  background: #555555;
+  border-radius: 7px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* アニメーション挙動 */
+/* アイコン */
+.report-icon.rotate {
+  -webkit-animation-name: "rotate-icon";
+          animation-name: "rotate-icon";
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotate-icon {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate-icon {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+/* 親要素の高さ */
+.report.active {
+  -webkit-animation-name: "extend-box";
+          animation-name: "extend-box";
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes extend-box {
+  to {
+    height: auto;
+  }
+}
+
+@keyframes extend-box {
+  to {
+    height: auto;
+  }
+}
+
+/* テキスト */
+.report-text.active {
+  -webkit-animation-name: "down-text";
+          animation-name: "down-text";
+  -webkit-animation-duration: .2s;
+          animation-duration: .2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes down-text {
+  to {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes down-text {
+  to {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+/* アニメーション挙動 */
